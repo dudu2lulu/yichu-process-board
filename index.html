@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一处常见事项的办理步骤和表格入口。">
+  <title>一处办事流程看板</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d698b'/%3E%3Cpath d='M17 20h30M17 32h30M17 44h22' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:light;--ink:#233946;--muted:#57717d;--blue:#12658b;--line:#d7e5ec;--paper:#f5f9fb;--white:#fff;--soft:#eaf4f9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}button,input{font:inherit}button{cursor:pointer}a{color:var(--blue)}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #278aba;outline-offset:3px}
+    .wrap{max-width:1120px;margin:auto;padding:24px 22px 64px}.top{display:flex;align-items:center;gap:11px;margin-bottom:24px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#d9edf5;color:#145f7f;font-weight:800}.top strong{font-size:19px}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;padding:24px 28px;background:var(--white);border:1px solid var(--line);border-radius:18px}.intro h1{font-size:clamp(25px,3vw,33px);line-height:1.3;margin:0 0 5px}.intro p{margin:0;color:var(--muted)}.search{width:min(360px,100%);min-width:220px;padding:12px 14px;border:1px solid #aac4d1;border-radius:10px;background:#fff;color:var(--ink)}
+    h2{font-size:22px;line-height:1.35;margin:31px 0 13px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{display:block;width:100%;min-height:134px;padding:17px 18px;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--white);color:var(--ink)}.card:hover,.card[aria-expanded="true"]{border-color:#5c9db9;background:#f0f8fc}.num{color:var(--blue);font-size:14px;font-weight:800}.card strong{display:block;margin:10px 0 3px;font-size:18px;line-height:1.35}.card small{display:block;color:var(--muted);font-size:14px}.card .hint{display:block;margin-top:9px;color:var(--blue);font-size:14px;font-weight:700}
+    .detail{margin-top:14px;padding:23px 25px;background:var(--white);border:1px solid #a6c9d9;border-radius:15px;scroll-margin-top:18px}.detail[hidden],.card[hidden],.doc[hidden]{display:none}.detail-head{display:flex;justify-content:space-between;align-items:start;gap:12px}.detail h3{font-size:21px;margin:0 0 4px}.detail .lead{margin:0 0 19px;color:var(--muted)}.close{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);padding:7px 12px;min-width:54px}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 18px;padding:0;list-style:none;counter-reset:step}.steps li{position:relative;padding:15px;border:1px solid var(--line);border-radius:11px;background:#f9fcfe;counter-increment:step}.steps li:before{content:counter(step);display:grid;place-items:center;width:26px;height:26px;margin-bottom:9px;border-radius:50%;background:#dceef5;color:#125f80;font-weight:800;font-size:14px}.steps strong{display:block;font-size:16px}.steps p{margin:4px 0 0;color:var(--muted);font-size:14px;line-height:1.55}.links{display:flex;flex-wrap:wrap;gap:9px}.links a{display:inline-block;padding:9px 13px;border:1px solid #a7c6d5;border-radius:9px;background:#edf7fb;font-weight:700;text-decoration:none}.links a:hover{background:#dceef5}.notice{margin:0;padding:12px 14px;border-radius:9px;background:#fff7e9;color:#705421;font-size:14px}
+    .docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.doc{padding:13px 15px;border:1px solid var(--line);border-radius:11px;background:#fff;text-decoration:none}.doc:hover{border-color:#7eb0c7;background:#f8fcfe}.doc strong{display:block;color:var(--ink);font-size:16px}.doc span{color:var(--muted);font-size:14px}.empty{display:none;padding:18px;border:1px dashed #a9c2ce;border-radius:10px;background:#fff;color:var(--muted)}.empty.show{display:block}.foot{margin-top:32px;padding-top:15px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+    @media(max-width:800px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}}
+    @media(max-width:560px){.wrap{padding:16px 14px 40px}.intro{display:block;padding:20px 16px}.search{width:100%;margin-top:15px}.cards,.docs{grid-template-columns:1fr}.card{min-height:112px}.detail{padding:19px 16px}.top strong{font-size:17px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top"><span class="logo" aria-hidden="true">一处</span><strong>一处办事流程看板</strong></header>
+    <section class="intro"><div><h1>要办什么事？</h1><p>选一个事项，看步骤、打开要用的表。</p></div><input class="search" id="search" type="search" autocomplete="off" aria-label="搜索事项和表格" placeholder="搜索报账、外协、会议室、工卡…"></section>
+    <section aria-labelledby="serviceTitle"><h2 id="serviceTitle">常用事项</h2><div class="cards" id="cards"></div><div class="empty" id="serviceEmpty">没有找到对应事项。试试更短的关键词。</div><article class="detail" id="detail" hidden></article></section>
+    <section aria-labelledby="docsTitle"><h2 id="docsTitle">常用表格与文档</h2><div class="docs" id="docs"></div><div class="empty" id="docEmpty">没有找到对应表格。</div></section>
+    <footer class="foot">办理要求以原始文档和最新通知为准。尚无完整流程的事项已标明。</footer>
+  </main>
+  <script>
+    const master='https://kdocs.cn/l/cpPLZrXbEsHo';
+    const services=[
+      {title:'报账与出差',subtitle:'申请、准备材料、系统报销、台账和纸质材料',keywords:'报销 报账 差旅 出差 发票 台账 报销单',lead:'按当前进度完成一步，再看下一步。',steps:[['出差前申请','先填出差申请单并完成审批，再出发。具体填写看差旅指南。'],['出差回来准备材料','按本次出差情况整理交通、住宿等票据；提交纸质单据前完成自查清单。'],['系统发起报销','按差旅指南在邮连差旅平台填报，提交后复制报销单号。'],['填写台账并反馈','在苏州成本、工程费用台账选对页填写，并在报账群反馈。'],['关注复核与纸质单据','主动查看复核意见；到单据审查节点按要求粘贴、交寄纸质材料。']],links:[['打开报账指南','https://www.kdocs.cn/l/csmYiAD86Tbe'],['填写报账台账','https://docs.qq.com/sheet/DT3FGYmdEbXhnUFpU?tab=05ukci']]},
+      {title:'外协外包在场管理',subtitle:'入场、在场和笔记本申请',keywords:'外协 外包 入场 在场 离场 笔记本',lead:'先看入场指南，再按所需资源填写申请。',steps:[['查看入场要求','打开外协在场流程与入场指南，确认本次人员和材料要求。'],['办理所需申请','需要外协笔记本的，填写笔记本电脑入场申请表并写清申请理由。'],['核对人员台账','入场后按现有人员台账核对在场信息。']],links:[['打开入场指南','https://kdocs.cn/l/cqce2zpE9TWk'],['外协笔记本申请','https://kdocs.cn/l/ctuADMKtrnn3'],['研发人员基础台账','https://kdocs.cn/l/cetvQcYnN7ze']]},
+      {title:'数据拷入与拷出',subtitle:'先找对应要求和台账',keywords:'数据 拷入 拷出 文件 内网 外网',lead:'拷入有现成台账；拷出流程资料仍待补齐。',steps:[['确认是拷入还是拷出','先区分数据流向，避免填错入口。'],['拷入：填写台账','使用内网数据拷入台账；具体要求按表内说明办理。'],['拷出：查看现有说明','目前没有核实到独立拷出申请入口，先在万能表格中查看现有说明。']],links:[['填写内网数据拷入台账','https://www.kdocs.cn/l/cdhZWwrZwWGk'],['查看万能表格','https://kdocs.cn/l/cpPLZrXbEsHo']]},
+      {title:'会议室预订和会务',subtitle:'预订会议室，准备会务需求',keywords:'会议 会议室 会务 预订 预约',lead:'预订入口在万能表格第 7 项。',steps:[['确认会议安排','准备日期、时段、人数和所需会议室。'],['打开预订入口','在万能表格中找到“表7 7—12楼会议室预定链接”。'],['有会务需求时联系','说明会议时间、地点、人数及所需支持；会务电话：62578129。']],links:[['打开万能表格 · 表7',master],['拨打会务电话','tel:62578129']]},
+      {title:'胡总签字材料',subtitle:'流程和材料清单待补充',keywords:'胡总 签字 签批 材料',lead:'当前资料没有可核实的签字材料流程及独立入口。',steps:[],links:[],note:'待补充：适用材料、提交方式、审批顺序和领取方式。'},
+      {title:'资源类申请',subtitle:'笔记本、云桌面、办公用品、工卡等',keywords:'资源 笔记本 云桌面 办公用品 A4 工卡 工牌 临时卡 VPN',lead:'按资源类型打开已有申请表；没有独立入口的先查看万能表格。',steps:[['确定要申请什么','区分外协笔记本、运维区笔记本、工牌或 VPN 等类型。'],['填写对应申请表','找到相应表格，按表内要求填写申请理由和人员信息。'],['找不到入口时','云桌面、办公用品、A4纸和临时卡尚缺独立流程，先查看万能表格中的最新说明。']],links:[['外协笔记本申请','https://kdocs.cn/l/ctuADMKtrnn3'],['运维区笔记本申请','https://kdocs.cn/l/cdGHeHvhUEKA?f=301'],['工牌申请 · 表10',master],['VPN 申请 · 表13',master],['万能表格入口',master]]}
+    ];
+    const docs=[
+      ['一处各类横向事项万能表格','查找现有表格总入口',master,'总表 资源 工牌 VPN 会议室'],
+      ['差旅费报销指南与教程','从申请到系统填报的详细说明','https://www.kdocs.cn/l/csmYiAD86Tbe','出差 报账 报销'],
+      ['苏州成本、工程费用台账','系统提交后选择对应页填写','https://docs.qq.com/sheet/DT3FGYmdEbXhnUFpU?tab=05ukci','报账 报销 台账'],
+      ['内网数据拷入台账','拷入数据时使用','https://www.kdocs.cn/l/cdhZWwrZwWGk','拷入 数据'],
+      ['外协在场流程与入场指南','外协入场和在场要求','https://kdocs.cn/l/cqce2zpE9TWk','外协 外包 入场'],
+      ['外协笔记本电脑入场申请表','外协人员申请笔记本','https://kdocs.cn/l/ctuADMKtrnn3','外协 资源 笔记本'],
+      ['运维区笔记本电脑申请表','运维区笔记本申请','https://kdocs.cn/l/cdGHeHvhUEKA?f=301','运维区 资源 笔记本']
+    ];
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const cardBox=document.querySelector('#cards'),docBox=document.querySelector('#docs'),detail=document.querySelector('#detail'),search=document.querySelector('#search');
+    let current=-1;
+    cardBox.innerHTML=services.map((s,i)=>`<button class="card" type="button" data-index="${i}" aria-expanded="false"><span class="num">${String(i+1).padStart(2,'0')}</span><strong>${esc(s.title)}</strong><small>${esc(s.subtitle)}</small><span class="hint">查看步骤</span></button>`).join('');
+    docBox.innerHTML=docs.map(d=>`<a class="doc" href="${esc(d[2])}" target="_blank" rel="noopener" data-search="${esc(d[0]+' '+d[1]+' '+d[3])}"><strong>${esc(d[0])}</strong><span>${esc(d[1])}</span></a>`).join('');
+    function open(i){current=i;const s=services[i];cardBox.querySelectorAll('.card').forEach((b,j)=>b.setAttribute('aria-expanded',String(j===i)));detail.innerHTML=`<div class="detail-head"><div><h3>${esc(s.title)}</h3><p class="lead">${esc(s.lead)}</p></div><button class="close" type="button">收起</button></div>${s.steps.length?`<ol class="steps">${s.steps.map(x=>`<li><strong>${esc(x[0])}</strong><p>${esc(x[1])}</p></li>`).join('')}</ol>`:''}${s.links.length?`<div class="links">${s.links.map(x=>`<a href="${esc(x[1])}" ${x[1].startsWith('http')?'target="_blank" rel="noopener"':''}>${esc(x[0])}</a>`).join('')}</div>`:''}${s.note?`<p class="notice">${esc(s.note)}</p>`:''}`;detail.hidden=false;detail.querySelector('.close').addEventListener('click',close);detail.scrollIntoView({block:'start',behavior:'smooth'});}
+    function close(){current=-1;detail.hidden=true;cardBox.querySelectorAll('.card').forEach(b=>b.setAttribute('aria-expanded','false'));}
+    cardBox.addEventListener('click',e=>{const b=e.target.closest('[data-index]');if(b){const i=Number(b.dataset.index);current===i?close():open(i)}});
+    search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let count=0;cardBox.querySelectorAll('.card').forEach((b,i)=>{const s=services[i],match=!q||(s.title+' '+s.subtitle+' '+s.keywords).toLowerCase().includes(q);b.hidden=!match;if(match)count++});document.querySelector('#serviceEmpty').classList.toggle('show',count===0);let docCount=0;docBox.querySelectorAll('.doc').forEach(a=>{const match=!q||a.dataset.search.toLowerCase().includes(q);a.hidden=!match;if(match)docCount++});document.querySelector('#docEmpty').classList.toggle('show',docCount===0);if(current>=0&&cardBox.querySelector(`[data-index="${current}"]`).hidden)close()});
+  </script>
+</body>
+</html>
