@@ -1,0 +1,37 @@
+{
+  "services": [
+    {
+      "id": "reimbursement",
+      "file": "services/reimbursement.json"
+    },
+    {
+      "id": "equipment",
+      "file": "services/equipment.json"
+    },
+    {
+      "id": "outsourcing",
+      "file": "services/outsourcing.json"
+    },
+    {
+      "id": "data-transfer",
+      "file": "services/data-transfer.json"
+    },
+    {
+      "id": "meetings",
+      "file": "services/meetings.json"
+    },
+    {
+      "id": "signature",
+      "file": "services/signature.json"
+    },
+    {
+      "id": "office-supplies",
+      "file": "services/office-supplies.json"
+    },
+    {
+      "id": "resources",
+      "file": "services/resources.json"
+    }
+  ],
+  "documents": "documents.json"
+}

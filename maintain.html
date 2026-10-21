@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>看板内容维护</title><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/editor.css"></head>
+<body><main class="wrap"><header class="top"><strong>看板内容维护</strong><a href="./">查看公开看板</a></header>
+<h1>改内容，预览，再发布</h1><p>选择一个事项，直接修改文字、步骤或链接。这里的修改只保存在当前页面；下载配置并上传到 GitHub 后，公开看板才会更新。</p>
+<div class="editor-toolbar"><label>要修改的内容 <select id="contentSelect" aria-label="要修改的内容"></select></label><label>或导入已下载的配置 <input id="importConfig" type="file" accept=".json,application/json"></label></div>
+<p id="filePath" class="editor-path"></p><form id="contentForm"></form>
+<div class="editor-toolbar"><button type="button" id="downloadConfig">1. 检查并下载配置</button><a id="uploadLink" target="_blank" rel="noopener">2. 打开 GitHub 上传位置</a><button type="button" id="resetConfig">重新载入线上内容</button></div>
+<p>上传时使用下载文件的原文件名，选择替换同名文件，然后点击 GitHub 的“Commit changes”提交。通常约1分钟后生效。需要使用有仓库写入权限的 GitHub 账号。</p>
+<p id="editorMessage" role="status" aria-live="polite"></p><h2>修改后预览</h2><section id="contentPreview" class="detail editor-preview"></section>
+</main><script type="module" src="./assets/editor.js"></script></body></html>
