@@ -18,6 +18,10 @@ export function validateContent(value, kind='service') {
   if(!value||typeof value!=='object'||Array.isArray(value))return ['事项配置必须是一个对象'];
   for(const key of ['id','title','subtitle','keywords','lead'])if(!nonempty(value[key]))errors.push(key+'不能为空');
   if(value.note!==undefined&&typeof value.note!=='string')errors.push('提示必须是文字');
+  if(value.images!==undefined) {
+    if(!Array.isArray(value.images))errors.push('配图必须是列表');
+    else value.images.forEach((image,i)=>{if(!/^\.\/assets\/images\/[\w-]+\.(png|jpe?g|webp)$/.test(image?.src)||!nonempty(image?.alt)||(image.caption!==undefined&&typeof image.caption!=='string'))errors.push('第'+(i+1)+'张配图需要有效的本地图片地址和说明');});
+  }
   pairs(value.steps,'步骤',errors);
   pairs(value.links,'入口',errors);
   if(Array.isArray(value.links))value.links.forEach((row,i)=>{if(!urlOK(row?.[1]))errors.push('入口第'+(i+1)+'项链接须为 http、https 或 tel 地址');});

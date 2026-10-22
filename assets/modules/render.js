@@ -13,5 +13,6 @@ export function renderDetail(s) {
   const links=s.links.length?`<div class="links">${s.links.map(x=>`<a href="${esc(x[1])}" ${x[1].startsWith('http')?'target="_blank" rel="noopener"':''}>${esc(x[0])}</a>`).join('')}</div>`:'';
   const guide=s.statusGuide;
   const statuses=s.statuses?`<section class="status-guide" aria-labelledby="statusTitle"><h4 id="statusTitle">${esc(guide.title)}</h4><p>${esc(guide.description)}</p><ol class="status-list">${s.statuses.map((x,j)=>`<li class="${j===guide.actionIndex?'needs-action':''}"><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></li>`).join('')}</ol></section>`:'';
-  return `<div class="detail-head"><div><h3>${esc(s.title)}</h3><p class="lead">${esc(s.lead)}</p></div><button class="close" type="button">收起</button></div>${s.note?`<p class="notice">${esc(s.note)}</p>`:''}${s.statuses?links+statuses+`<h4>${esc(guide.stepsTitle)}</h4>`+steps:steps+links}`;
+  const images=(s.images||[]).map(image=>`<figure class="guide-image"><a href="${esc(image.src)}" target="_blank" rel="noopener" aria-label="${esc(image.alt)}（查看原图）"><img src="${esc(image.src)}" alt="${esc(image.alt)}" loading="lazy"></a><figcaption>${esc(image.caption||'点击图片查看原图')}</figcaption></figure>`).join('');
+  return `<div class="detail-head"><div><h3>${esc(s.title)}</h3><p class="lead">${esc(s.lead)}</p></div><button class="close" type="button">收起</button></div>${s.note?`<p class="notice">${esc(s.note)}</p>`:''}${s.statuses?links+statuses+`<h4>${esc(guide.stepsTitle)}</h4>`+steps:steps+links}${images}`;
 }
