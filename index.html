@@ -6,16 +6,17 @@
   <meta name="description" content="一处常见事项的办理步骤和表格入口。">
   <title>一处办事流程看板</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d698b'/%3E%3Cpath d='M17 20h30M17 32h30M17 44h22' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./assets/styles.css?v=readability-1">
+  <link rel="stylesheet" href="./assets/styles.css?v=self-service-1">
 </head>
 <body>
   <main class="wrap">
-    <header class="top"><span class="logo" aria-hidden="true">一处</span><strong>一处办事流程看板</strong><a id="documentsEntry" href="#documents" style="margin-left:auto;font-size:14px">常用表格与文档</a></header>
-    <section class="intro"><div><h1>要办什么事？</h1><p>选一个事项，看步骤、打开要用的表。</p></div><input class="search" id="search" type="search" autocomplete="off" aria-label="搜索事项和表格" placeholder="搜索报账、外协、会议室、工卡…"></section>
-    <section aria-labelledby="serviceTitle"><h2 id="serviceTitle">常用事项</h2><div class="cards" id="cards"></div><div class="empty" id="serviceEmpty">没有找到对应事项。试试更短的关键词。</div><article class="detail" id="detail" hidden></article></section>
-    <section id="documents" aria-labelledby="docsTitle"><h2 id="docsTitle">常用表格与文档</h2><div class="docs" id="docs"></div><div class="empty" id="docEmpty">没有找到对应表格。</div></section>
+    <header class="top"><span class="logo" aria-hidden="true">一处</span><a id="homeEntry" class="brand" href="#home">一处员工自助服务</a><a id="documentsEntry" href="#documents" style="margin-left:auto;font-size:14px">常用表格与文档</a></header>
+    <section class="intro" id="home"><div><h1>要办什么事？</h1><p>先选要办的事，按提示准备材料、办理或查询。</p></div><input class="search" id="search" type="search" autocomplete="off" aria-label="搜索事项和表格" placeholder="搜索报账、外协、会议室、工卡…"></section>
+    <div class="search-feedback"><p id="searchResult" role="status" aria-live="polite"></p><button type="button" id="clearSearch" hidden>清空搜索</button></div>
+    <section aria-labelledby="serviceTitle"><h2 id="serviceTitle">常用事项</h2><div class="cards" id="cards"></div><div class="empty" id="serviceEmpty" role="status" aria-live="polite">没有找到对应事项。试试更短的关键词。</div><article class="detail" id="detail" hidden></article></section>
+    <section id="documents" aria-labelledby="docsTitle"><h2 id="docsTitle" tabindex="-1">常用表格与文档</h2><div class="docs" id="docs"></div><div class="empty" id="docEmpty">没有找到对应表格。</div></section>
     <footer class="foot">办理要求以原始文档和最新通知为准。尚无完整流程的事项已标明。</footer>
   </main>
-  <script type="module" src="./assets/main.js?v=readability-1"></script>
+  <script type="module" src="./assets/main.js?v=self-service-1"></script>
 </body>
 </html>
