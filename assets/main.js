@@ -1,5 +1,5 @@
 import {loadContent} from './modules/data.js';
-import {renderCards, renderDocuments, renderDetail} from './modules/render.js?v=tables-1';
+import {renderCards, renderDocuments, renderDetail} from './modules/render.js?v=readability-1';
 import {bindSearch} from './modules/search.js';
 
 const cardBox=document.querySelector('#cards'),docBox=document.querySelector('#docs');
