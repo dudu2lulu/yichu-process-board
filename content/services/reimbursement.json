@@ -28,6 +28,10 @@
   ],
   "links": [
     [
+      "查看过往真实报销模板—快速上手",
+      "https://dudu2lulu.github.io/yichu-process-board/reimbursement-templates.html"
+    ],
+    [
       "查看报销指南",
       "https://www.kdocs.cn/l/csmYiAD86Tbe"
     ],
@@ -73,6 +77,5 @@
     "stepsTitle": "报账办理步骤",
     "actionIndex": 2
   },
-  "stepsFirst": true,
-  "pendingFirstLink": "查看过往真实报销模板—快速上手"
+  "stepsFirst": true
 }
