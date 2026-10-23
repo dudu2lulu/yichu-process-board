@@ -1,6 +1,6 @@
-import {loadContent} from './modules/data.js';
-import {renderCards, renderDocuments, renderDetail} from './modules/render.js?v=self-service-1';
-import {bindSearch} from './modules/search.js?v=self-service-1';
+import {loadContent} from './modules/data.js?v=material-search-1';
+import {renderCards, renderDocuments, renderDetail} from './modules/render.js?v=material-search-1';
+import {bindSearch} from './modules/search.js?v=material-search-1';
 
 const cardBox=document.querySelector('#cards'),docBox=document.querySelector('#docs');
 const detail=document.querySelector('#detail'),search=document.querySelector('#search');
@@ -13,7 +13,7 @@ async function start(){
   notice.replaceChildren(document.createTextNode('正在加载办理事项…'));
   notice.classList.add('show');
   try {
-    const {services,docs}=await loadContent();
+    const {services,docs,materials}=await loadContent();
     cardBox.innerHTML=renderCards(services);
     docBox.innerHTML=renderDocuments(docs);
     const guideIndex=services.findIndex(s=>s.readingGuide);
@@ -33,7 +33,7 @@ async function start(){
     }
     function open(i){
       current=i;
-      home.hidden=true;cardBox.hidden=true;serviceTitle.hidden=true;notice.classList.remove('show');
+      home.hidden=true;document.querySelector('#materialResults').hidden=true;cardBox.hidden=true;serviceTitle.hidden=true;notice.classList.remove('show');
       documents.hidden=true;result.hidden=true;clear.hidden=true;
       cardBox.querySelectorAll('.card').forEach((b,j)=>b.setAttribute('aria-expanded',String(j===i)));
       detail.innerHTML=renderDetail(services[i]);
@@ -58,7 +58,7 @@ async function start(){
       detail.scrollIntoView({block:'start'});
       detail.querySelector('h3').focus({preventScroll:true});
     }
-    const updateSearch=bindSearch({search,cardBox,docBox,services,result,clear});
+    const updateSearch=bindSearch({search,cardBox,docBox,services,result,clear,materials});
     function showHome(){
       current=-1;detail.hidden=true;home.hidden=false;cardBox.hidden=false;serviceTitle.hidden=false;
       documents.hidden=false;result.hidden=false;

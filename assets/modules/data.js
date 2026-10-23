@@ -7,11 +7,12 @@ async function readJSON(url) {
 export async function loadContent() {
   const base = new URL('../../content/', import.meta.url);
   const manifest = await readJSON(new URL('index.json', base));
-  const [services, docs] = await Promise.all([
+  const [services, docs, materials] = await Promise.all([
     Promise.all(manifest.services.map(item => readJSON(new URL(item.file, base)))),
     readJSON(new URL(manifest.documents, base)),
+    readJSON(new URL('search-index.json', base)).catch(()=>null),
   ]);
-  return {manifest, services, docs};
+  return {manifest, services, docs, materials};
 }
 
 export {readJSON};
