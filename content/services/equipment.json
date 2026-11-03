@@ -21,8 +21,12 @@
       "已有设备必须在总台账中；新领设备上传清晰铭牌照片，并按同型号格式提示检查位数。"
     ],
     [
-      "等待审批完成",
-      "保存申请编号查询进度；审批人核对实物交接后审批，完成审批才由设备系统同步更新总台账。请勿重复提交相同设备的交接记录。"
+      "审批同意 → 实际交接 → 更新台账",
+      "保存申请编号查询进度。同意申请不等于交接完成；领取、归还、更换需填写下方腾讯交接清单。审批人核实双方实际交接，登记接收人、存放位置及清单记录后，总台账才更新。归还须确认库房已接收。"
+    ],
+    [
+      "每季度逐台核对",
+      "项目组管理员查看实物铭牌、实际使用人和工位，在“本季度实物核对”中填写或上传本项目Excel。系统对照总台账，有差异先处理，不用旧表直接覆盖。设备变动后需重新核对；全部核实后由审批人导出季度确认版。"
     ],
     [
       "云桌面申请",
@@ -31,8 +35,32 @@
   ],
   "links": [
     [
-      "打开设备申请与变更页面",
-      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/"
+      "申请领取设备",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/?kind=issue#apply"
+    ],
+    [
+      "归还设备",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/?kind=return#apply"
+    ],
+    [
+      "更换设备（旧换新）",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/?kind=replace#apply"
+    ],
+    [
+      "变更工位／使用人",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/?kind=change#apply"
+    ],
+    [
+      "本季度实物核对（填写／上传项目清单）",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/#quarterSubmit"
+    ],
+    [
+      "资产出库申领、更换、归还交接清单（必须填写）",
+      "https://docs.qq.com/sheet/DRHRBU1NSU1ZQQVpV?tab=BB08J2"
+    ],
+    [
+      "审批人：总台账与季度复核（需审批密码）",
+      "https://yichu-equipment-requests.xilrish2dudu1.chatgpt.site/#ledger"
     ]
   ],
   "id": "equipment",
